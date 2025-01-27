@@ -19,6 +19,8 @@ final class FilterExpressionProviderPass implements CompilerPassInterface
             'orm' => $container->getParameter('instacar.extra_filters.doctrine.orm.filters'),
         ];
 
+        $inflector = new Inflector(); 
+
         foreach ($availableFilters as $key => $allowedFilters) {
             if (empty($allowedFilters)) {
                 throw new \InvalidArgumentException('You must provide filters for the ExpressionFilter');
@@ -26,7 +28,7 @@ final class FilterExpressionProviderPass implements CompilerPassInterface
 
             $filters = [];
             foreach ($allowedFilters as $filterClass) {
-                $id = 'expression_filter_' . Inflector::tableize(str_replace('\\', '', $filterClass));
+                $id = 'expression_filter_' . $inflector->tableize(str_replace('\\', '', $filterClass));
 
                 if ($container->has($id)) {
                     continue;
