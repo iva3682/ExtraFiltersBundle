@@ -2,7 +2,7 @@
 
 namespace Instacar\ExtraFiltersBundle\DependencyInjection\Compiler;
 
-use ApiPlatform\Util\Inflector;
+use ApiPlatform\Metadata\Util\Inflector;
 use Instacar\ExtraFiltersBundle\Doctrine\Orm\Filter\ExpressionFilter as OrmExpressionFilter;
 use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
